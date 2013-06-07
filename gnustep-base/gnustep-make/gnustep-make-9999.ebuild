@@ -76,6 +76,8 @@ src_compile() {
 src_install() {
 	# Get GNUSTEP_* variables
 	. ./GNUstep.conf
+	
+	export GNUSTEP_INSTALL_TYPE=SYSTEM
 
 	local make_eval
 	use debug || make_eval="${make_eval} debug=no"
