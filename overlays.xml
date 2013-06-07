@@ -1,0 +1,13 @@
+<repositories version="1.0">
+    <repo quality="experimental" status="unofficial">
+        <name>darling-overlay</name>
+        <description lang="en">Darling Overlay</description>
+        <homepage>https://github.com/LubosD/darling-overlay</homepage>
+        <owner type="person">
+            <email>lubos@dolezel.info</email>
+            <name>Lubos Dolezel</name>
+        </owner>
+		<source type="git">git://github.com/LubosD/darling-overlay.git</source>
+    </repo>
+</repositories>
+
