@@ -1,0 +1,4 @@
+This is a Gentoo overlay for the Darling project.
+
+Currently, it is incomplete (work in progress) and cannot be used to emerge Darling. It does contain a few useful ebuilds though.
+
