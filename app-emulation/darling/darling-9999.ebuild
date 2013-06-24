@@ -17,13 +17,19 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
 
-DEPEND=">=sys-devel/clang-3.2"
-RDEPEND="${DEPEND}
+DEPEND=">=sys-devel/clang-3.2
+	virtual/udev
+	gnustep-base/gnustep-base
+	gnustep-base/gnustep-corebase
+	gnustep-base/gnustep-gui"
+RDEPEND="virtual/udev
 	gnustep-base/gnustep-base
 	gnustep-base/gnustep-corebase
 	gnustep-base/gnustep-gui
 	dev-libs/libkqueue
-	dev-libs/libdispatch"
+	dev-libs/libdispatch
+	dev-libs/openssl
+	dev-libs/libbsd"
 
 src_unpack() {
 	git-2_src_unpack
