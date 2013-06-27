@@ -4,7 +4,7 @@
 
 EAPI=5
 
-inherit git-2 cmake-utils
+inherit git-2 cmake-multilib
 
 DESCRIPTION="Linux port of Apple's open-source concurrency library"
 HOMEPAGE="http://nickhutchinson.me/libdispatch"
@@ -18,10 +18,14 @@ IUSE=""
 EGIT_REPO_URI="https://github.com/nickhutchinson/libdispatch.git"
 
 DEPEND=">=sys-devel/clang-2.9"
-RDEPEND="${DEPEND} dev-libs/libpthread_workqueue dev-libs/libkqueue gnustep-base/libobjc2"
+RDEPEND="${DEPEND}
+	dev-libs/libpthread_workqueue[${MULTILIB_USEDEP}]
+	dev-libs/libkqueue[${MULTILIB_USEDEP}]"
 
 src_unpack() {
 	git-2_src_unpack
+	
+	sed -i 's/DESTINATION lib/DESTINATION ${CMAKE_INSTALL_LIBDIR}/' "${PF}/src/CMakeLists.txt"
 }
 
 src_prepare() {
@@ -33,7 +37,7 @@ src_configure() {
 	export CXX=clang++
 	
 	append-flags -fblocks
-	cmake-utils_src_configure
+	cmake-multilib_src_configure
 }
 
 
