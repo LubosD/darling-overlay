@@ -23,15 +23,11 @@ DEPEND="${RDEPEND}
 ESVN_REPO_URI="svn://svn.gna.org/svn/gnustep/libs/libobjc2/trunk"
 ESVN_PROJECT="libobjc2"
 
-src_unpack() {
-	subversion_src_unpack
-	epatch "${FILESDIR}/dont-break-libpath.patch"
-}
 
 src_configure() {
 	export CC=clang
 	export CXX=clang++
-	
+
 	local gb
 	use boehm-gc \
 		&& gb="-DBOEHM_GC=TRUE" \
@@ -47,10 +43,10 @@ src_compile() {
 
 src_install() {
 	cmake-multilib_src_install
-	
+
 	#dosym libobjc.so.4.6 "/usr/$(get_libdir)/libobjc.so.4"
 	#dosym libobjc.so.4.6 "/usr/$(get_libdir)/libobjc.so.4.6.0"
-	
+
 	#if use abi_x86; then
 	#	ABI=x86
 	#	dosym libobjc.so.4.6 "/usr/$(get_libdir)/libobjc.so.4"
