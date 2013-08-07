@@ -21,6 +21,7 @@ DEPEND=">=sys-devel/clang-3.2
 	virtual/udev
 	gnustep-base/gnustep-base
 	gnustep-base/gnustep-corebase
+	gnustep-base/gnustep-opal
 	gnustep-base/gnustep-gui"
 RDEPEND="virtual/udev
 	gnustep-base/gnustep-base
