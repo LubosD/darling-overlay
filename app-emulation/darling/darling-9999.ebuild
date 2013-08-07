@@ -35,6 +35,11 @@ src_unpack() {
 	git-2_src_unpack
 }
 
+src_prepare() {
+	sed -i -e 's/DylibSearch.cpp/DylibSearch.cpp\ UndefinedFunction.cpp/' \
+		src/dyld/CMakeLists.txt
+}
+
 src_configure() {
 	export CC=clang
 	export CXX=clang++
@@ -46,4 +51,3 @@ src_configure() {
 
 	cmake-utils_src_configure
 }
-
