@@ -1,0 +1,32 @@
+--- libobjc2-9999/CMakeLists.txt.orig	2013-07-01 11:03:26.743041010 +0200
++++ libobjc2-9999/CMakeLists.txt	2013-07-01 11:08:58.744747372 +0200
+@@ -204,7 +204,8 @@
+ 			add_library(objcxx SHARED ${libobjcxx_CXX_SRCS})
+ 			set_target_properties(objcxx PROPERTIES
+ 				LINKER_LANGUAGE C
+-				SOVERSION ${libobjc_VERSION}
++				SOVERSION 4
++				VERSION ${libobjc_VERSION}
+ 				)
+ 			target_link_libraries(objcxx ${CXX_RUNTIME})
+ 			set(CXX_RUNTIME "")
+@@ -220,7 +221,8 @@
+ 		add_library(objcxx SHARED ${libobjcxx_CXX_SRCS})
+ 		set_target_properties(objcxx PROPERTIES
+ 			LINKER_LANGUAGE C
+-			SOVERSION ${libobjc_VERSION}
++			SOVERSION 4
++			VERSION ${libobjc_VERSION}
+ 			)
+ 		set(CXX_RUNTIME "")
+ 		list(APPEND INSTALL_TARGETS objcxx)
+@@ -241,7 +243,8 @@
+ 
+ set_target_properties(objc PROPERTIES
+ 	LINKER_LANGUAGE C
+-	SOVERSION ${libobjc_VERSION}
++	SOVERSION 4
++	VERSION ${libobjc_VERSION}
+ 	OUTPUT_NAME ${LIBOBJC_NAME}
+ 	LINK_FLAGS "${objc_LINK_FLAGS}"
+ 	)

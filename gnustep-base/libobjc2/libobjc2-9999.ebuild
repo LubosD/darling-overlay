@@ -23,6 +23,10 @@ DEPEND="${RDEPEND}
 ESVN_REPO_URI="svn://svn.gna.org/svn/gnustep/libs/libobjc2/trunk"
 ESVN_PROJECT="libobjc2"
 
+src_unpack() {
+	subversion_src_unpack
+	epatch "${FILESDIR}/version.patch"
+}
 
 src_configure() {
 	export CC=clang
