@@ -40,4 +40,11 @@ src_configure() {
 	cmake-multilib_src_configure
 }
 
+src_install() {
+	cmake-multilib_src_install
+	
+	insinto /usr/include/dispatch
+	doins "${FILESDIR}/dispatch.h"
+	#dosym dispatch/dispatch.h /usr/include/dispatch/dispatch.h
+}
 
