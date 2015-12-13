@@ -4,7 +4,7 @@
 
 EAPI=5
 
-inherit git-2 cmake-utils
+inherit git-r3 cmake-utils
 
 DESCRIPTION="Darling is a Wine-like emulation layer that enables you to run OS X apps on Linux"
 HOMEPAGE="http://darling.dolezel.info"
@@ -17,12 +17,15 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
 
-DEPEND=">=sys-devel/clang-3.2
+DEPEND="
+	>=sys-devel/clang-3.2
 	virtual/udev
 	gnustep-base/gnustep-base
 	gnustep-base/gnustep-corebase
-	gnustep-base/gnustep-gui"
-RDEPEND="virtual/udev
+	gnustep-base/gnustep-gui
+"
+RDEPEND="
+	virtual/udev
 	gnustep-base/gnustep-base
 	gnustep-base/gnustep-corebase
 	gnustep-base/gnustep-gui
@@ -30,19 +33,17 @@ RDEPEND="virtual/udev
 	dev-libs/libdispatch
 	dev-libs/openssl
 	>=dev-libs/libbsd-0.5.2
-	media-video/libav"
-
-src_unpack() {
-	git-2_src_unpack
-}
+	media-video/libav
+"
 
 src_configure() {
+	local mycmakeargs=();
 	export CC=clang
 	export CXX=clang++
 
 	# TODO: multilib
 	if use amd64; then
-		local mycmakeargs="-DSUFFIX=64"
+		local mycmakeargs+=( "-DSUFFIX=64" )
 	fi
 
 	cmake-utils_src_configure
